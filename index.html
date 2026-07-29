@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="GreenTomato AI Artists — distinct digital personalities for contemporary brand storytelling."
+    />
+    <title>GreenTomato — AI Artists</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="GreenTomato home">
+        <img src="./assets/greentomato-logo.svg" alt="GreenTomato" />
+      </a>
+
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#artists">Artists</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://gtomato.com/" target="_blank" rel="noreferrer">
+          Company <span aria-hidden="true">↗</span>
+        </a>
+      </nav>
+
+      <button class="language-button" type="button" aria-expanded="false">
+        <span>EN</span>
+        <svg viewBox="0 0 12 8" aria-hidden="true">
+          <path d="m1 1 5 5 5-5" />
+        </svg>
+      </button>
+
+      <button class="menu-button" type="button" aria-expanded="false" aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" id="artists" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">GreenTomato / AI Artists</p>
+          <h1 id="hero-title">
+            Distinct digital<br />
+            personalities for<br />
+            <em>brand storytelling.</em>
+          </h1>
+
+          <div class="hero-footer">
+            <p class="intro">
+              Artist-led images and films created for brands across hospitality,
+              retail and culture.
+            </p>
+            <a class="primary-link" href="#artists-list">
+              <span>Meet the Artists</span>
+              <span class="link-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </div>
+
+        <article class="artist-feature" aria-label="Featured artist Maya">
+          <figure class="artist-image">
+            <img src="./assets/maya-hero.png" alt="Maya in a city street" />
+          </figure>
+          <div class="artist-meta">
+            <div>
+              <p class="artist-index">01 / 05</p>
+              <h2>Maya</h2>
+            </div>
+            <a href="#maya-profile" aria-label="View Maya profile">
+              View profile <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+        </article>
+
+        <div class="hero-rail" aria-hidden="true">
+          <span>AI Artist / Seoul</span>
+          <span>Scroll to explore</span>
+        </div>
+      </section>
+    </main>
+
+    <div class="language-menu" aria-hidden="true">
+      <button type="button" data-language="EN">English</button>
+      <button type="button" data-language="繁">繁體中文</button>
+      <button type="button" data-language="简">简体中文</button>
+    </div>
+
+    <div class="mobile-menu" aria-hidden="true">
+      <nav aria-label="Mobile navigation">
+        <a href="#artists">Artists</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <a href="https://gtomato.com/" target="_blank" rel="noreferrer">Company ↗</a>
+      </nav>
+    </div>
+  </body>
+</html>
