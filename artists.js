@@ -18,7 +18,8 @@ function applyFilters() {
   cards.forEach((card) => {
     const matches = Object.entries(activeFilters).every(([key, value]) => {
       if (!value) return true;
-      return card.dataset[key]?.split(" ").join(" ").includes(value);
+      const cardValue = card.dataset[key] || "";
+      return key === "gender" ? cardValue === value : cardValue.includes(value);
     });
 
     card.hidden = !matches;
