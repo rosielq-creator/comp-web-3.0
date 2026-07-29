@@ -19,12 +19,17 @@ function updateVisibleWork() {
   workGroups.forEach((group) => {
     const matches = matchingGroups.includes(group);
     const index = matchingGroups.indexOf(group);
-    group.hidden = !matches || index >= visibleWorkCount;
+    const isVisible = matches && index < visibleWorkCount;
+
+    group.hidden = !isVisible;
+    group.dataset.pageVisible = String(isVisible);
+    group.setAttribute("aria-hidden", String(!isVisible));
   });
 
   if (workLoadMore) {
     const remaining = matchingGroups.length - visibleWorkCount;
     workLoadMore.hidden = remaining <= 0;
+    workLoadMore.dataset.pageVisible = String(remaining > 0);
     workLoadMore.querySelector("span").textContent = "Show more";
     workLoadMore.setAttribute(
       "aria-label",
@@ -86,7 +91,14 @@ workFilters?.addEventListener("click", (event) => {
 });
 
 workLoadMore?.addEventListener("click", () => {
-  visibleWorkCount += WORK_BATCH_SIZE;
+  visibleWorkCount = Math.min(
+    visibleWorkCount + WORK_BATCH_SIZE,
+    workGroups.filter(
+      (group) =>
+        activeWorkFilter === "all" ||
+        group.dataset.workCategory === activeWorkFilter,
+    ).length,
+  );
   updateVisibleWork();
 });
 

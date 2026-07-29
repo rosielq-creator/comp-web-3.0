@@ -638,7 +638,11 @@ h1 em {
 }
 
 .work-brand-group[hidden] {
-  display: none;
+  display: none !important;
+}
+
+.work-brand-group[data-page-visible="false"] {
+  display: none !important;
 }
 
 .work-brand-header {
@@ -774,7 +778,11 @@ h1 em {
 }
 
 .work-load-more[hidden] {
-  display: none;
+  display: none !important;
+}
+
+.work-load-more[data-page-visible="false"] {
+  display: none !important;
 }
 
 .artists-drawer {
