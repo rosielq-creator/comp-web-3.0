@@ -371,14 +371,14 @@ h1 em {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 7vh 5vw 9vh 6vw;
+  padding: 7vh 3vw 9vh 5vw;
 }
 
 .capabilities-copy h2 {
   max-width: 860px;
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(48px, 4.1vw, 76px);
+  font-size: clamp(46px, 3.55vw, 66px);
   font-weight: 400;
   letter-spacing: -0.052em;
   line-height: 1.02;
