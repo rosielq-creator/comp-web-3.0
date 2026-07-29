@@ -3,7 +3,11 @@ const languageMenu = document.querySelector(".language-menu");
 const menuButton = document.querySelector(".menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
 const workFilters = document.querySelector(".work-filters");
-const workCards = document.querySelectorAll(".work-card");
+const workGroups = document.querySelectorAll(".work-brand-group");
+const allArtistsButton = document.querySelector(".all-artists-button");
+const artistsDrawer = document.querySelector(".artists-drawer");
+const artistsDrawerClose = document.querySelector(".artists-drawer-close");
+const artistsDrawerBackdrop = document.querySelector(".artists-drawer-backdrop");
 
 function setExpanded(button, panel, open) {
   button.setAttribute("aria-expanded", String(open));
@@ -51,8 +55,38 @@ workFilters?.addEventListener("click", (event) => {
     item.classList.toggle("is-active", item === button);
   });
 
-  workCards.forEach((card) => {
-    card.hidden =
-      filter !== "all" && card.dataset.workCategory !== filter;
+  workGroups.forEach((group) => {
+    group.hidden =
+      filter !== "all" && group.dataset.workCategory !== filter;
   });
+});
+
+document.querySelectorAll(".show-more-button").forEach((button) => {
+  button.addEventListener("click", () => {
+    const group = button.closest(".work-brand-group");
+    const more = group?.querySelector(".work-more");
+    if (!group || !more) return;
+
+    const expanded = button.getAttribute("aria-expanded") === "true";
+    button.setAttribute("aria-expanded", String(!expanded));
+    button.firstChild.textContent = expanded ? "Show more " : "Show less ";
+    more.setAttribute("aria-hidden", String(expanded));
+    group.classList.toggle("is-expanded", !expanded);
+  });
+});
+
+function setArtistsDrawer(open) {
+  if (!artistsDrawer || !artistsDrawerBackdrop || !allArtistsButton) return;
+  artistsDrawer.classList.toggle("is-open", open);
+  artistsDrawerBackdrop.classList.toggle("is-open", open);
+  artistsDrawer.setAttribute("aria-hidden", String(!open));
+  allArtistsButton.setAttribute("aria-expanded", String(open));
+}
+
+allArtistsButton?.addEventListener("click", () => setArtistsDrawer(true));
+artistsDrawerClose?.addEventListener("click", () => setArtistsDrawer(false));
+artistsDrawerBackdrop?.addEventListener("click", () => setArtistsDrawer(false));
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape") setArtistsDrawer(false);
 });

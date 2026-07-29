@@ -296,8 +296,9 @@ h1 em {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 68% center;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: drop-shadow(0 22px 28px rgba(25, 42, 35, 0.08));
 }
 
 .maya-caption {
@@ -333,8 +334,25 @@ h1 em {
   font-size: 11px;
 }
 
+.maya-actions {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.all-artists-button {
+  padding: 0 0 5px;
+  border: 0;
+  border-bottom: 1px solid var(--ink);
+  background: transparent;
+  font-size: 11px;
+  cursor: pointer;
+}
+
 .maya-caption a:hover,
-.maya-caption a:focus-visible {
+.maya-caption a:focus-visible,
+.all-artists-button:hover,
+.all-artists-button:focus-visible {
   color: var(--gt-green);
   border-color: var(--gt-green);
 }
@@ -596,85 +614,220 @@ h1 em {
 
 .work-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 22px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 64px 22px;
+  align-items: start;
 }
 
-.work-card {
+.work-brand-group {
   position: relative;
-  min-height: min(58vw, 650px);
-  overflow: hidden;
-  background: #d9e6df;
-  isolation: isolate;
   transition: opacity 220ms ease, transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.work-card[hidden] {
+.work-brand-group[hidden] {
   display: none;
 }
 
-.work-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+.work-brand-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+  padding-top: 12px;
+  border-top: 1px solid color-mix(in srgb, var(--gt-green) 18%, white);
 }
 
-.work-card-shade {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(3, 10, 7, 0.03) 28%,
-    rgba(3, 10, 7, 0.2) 64%,
-    rgba(3, 10, 7, 0.78) 100%
-  );
-  pointer-events: none;
-}
-
-.work-brand,
-.work-card-copy {
-  position: absolute;
-  z-index: 2;
-  right: 24px;
-  left: 24px;
-  color: #fff;
-}
-
-.work-brand {
-  top: 22px;
+.work-brand-header h3 {
   margin: 0;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  font-family: var(--serif);
+  font-size: clamp(24px, 2vw, 34px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.work-brand-header span {
+  color: #69706c;
+  font-size: 10px;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.work-card-copy {
-  bottom: 24px;
-  text-align: center;
+.work-project + .work-project {
+  margin-top: 14px;
 }
 
-.work-card-copy h3 {
-  margin: 0 0 18px;
-  font-family: var(--sans);
-  font-size: clamp(26px, 2.2vw, 40px);
-  font-weight: 500;
-  letter-spacing: -0.045em;
-  line-height: 1;
+.work-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: #d9e6df;
 }
 
-.work-card-copy span {
-  display: inline-flex;
-  padding: 7px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.72);
-  font-size: 10px;
-  letter-spacing: 0.04em;
+.work-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.work-card:hover img {
+.work-media-overlay {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 58px;
+  padding: 15px 18px;
+  background: linear-gradient(to top, rgba(4, 12, 9, 0.76), rgba(4, 12, 9, 0.04));
+  color: #fff;
+  font-size: 12px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.work-media:hover img {
   transform: scale(1.025);
+}
+
+.work-media:hover .work-media-overlay,
+.work-media:focus-within .work-media-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.show-more-button {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 7px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  background: transparent;
+  color: #fff;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.show-more-button span {
+  transition: transform 220ms ease;
+}
+
+.show-more-button[aria-expanded="true"] span {
+  transform: rotate(180deg);
+}
+
+.work-more {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 420ms cubic-bezier(0.16, 1, 0.3, 1), opacity 260ms ease;
+}
+
+.work-more > .work-project {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.work-brand-group.is-expanded .work-more {
+  grid-template-rows: 1fr;
+  margin-top: 14px;
+  opacity: 1;
+}
+
+.artists-drawer {
+  position: fixed;
+  z-index: 42;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(520px, 92vw);
+  padding: 92px 42px 42px;
+  background: #fff;
+  transform: translateX(102%);
+  transition: transform 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.artists-drawer.is-open {
+  transform: translateX(0);
+}
+
+.artists-drawer > p {
+  margin: 0 0 14px;
+  color: #73736f;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.artists-drawer h2 {
+  margin: 0 0 52px;
+  font-family: var(--serif);
+  font-size: 64px;
+  font-weight: 400;
+  letter-spacing: -0.055em;
+}
+
+.artists-drawer nav {
+  display: grid;
+}
+
+.artists-drawer nav a {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  align-items: baseline;
+  padding: 17px 0;
+  border-top: 1px solid var(--line);
+  font-family: var(--serif);
+  font-size: 32px;
+}
+
+.artists-drawer nav a:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.artists-drawer nav a span {
+  color: var(--silver);
+  font-family: var(--sans);
+  font-size: 10px;
+}
+
+.artists-drawer nav a:hover {
+  color: var(--gt-green);
+}
+
+.artists-drawer-close {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  font-weight: 300;
+  cursor: pointer;
+}
+
+.artists-drawer-backdrop {
+  position: fixed;
+  z-index: 41;
+  inset: 0;
+  display: block;
+  border: 0;
+  background: rgba(7, 9, 8, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 220ms ease;
+}
+
+.artists-drawer-backdrop.is-open {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 @media (max-width: 1180px) {

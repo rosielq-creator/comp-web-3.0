@@ -75,7 +75,7 @@
           </div>
           <figure class="maya-cutout">
             <img
-              src="./assets/maya-hero-latest.png"
+              src="./assets/maya-cutout-hero-v4-cropped.png"
               alt="Maya seated with a laptop"
             />
           </figure>
@@ -84,7 +84,12 @@
               <p>Featured AI Artist</p>
               <h2>Maya</h2>
             </div>
-            <a href="#maya-profile">View profile <span aria-hidden="true">↗</span></a>
+            <div class="maya-actions">
+              <a href="#maya-profile">View Maya <span aria-hidden="true">↗</span></a>
+              <button class="all-artists-button" type="button" aria-expanded="false">
+                View all Artists <span aria-hidden="true">→</span>
+              </button>
+            </div>
           </div>
         </article>
 
@@ -177,78 +182,113 @@
         </nav>
 
         <div class="work-grid">
-          <article class="work-card" data-work-category="hospitality">
-            <img src="./assets/work/mgm-01-poster.jpg" alt="Macau MGM film 01" />
-            <div class="work-card-shade"></div>
-            <p class="work-brand">Macau MGM</p>
-            <div class="work-card-copy">
-              <h3>MGM 01</h3>
-              <span>Hospitality</span>
+          <article class="work-brand-group" data-work-category="hospitality">
+            <header class="work-brand-header">
+              <h3>Macau MGM</h3>
+              <span>02 films</span>
+            </header>
+            <div class="work-project">
+              <div class="work-media">
+                <img src="./assets/work/mgm-01-poster.jpg" alt="Macau MGM film 01" />
+                <div class="work-media-overlay">
+                  <span>MGM 01</span>
+                  <button class="show-more-button" type="button" aria-expanded="false">
+                    Show more <span aria-hidden="true">↓</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="work-more" aria-hidden="true">
+              <div class="work-project">
+                <div class="work-media">
+                  <img src="./assets/work/mgm-02-poster.jpg" alt="Macau MGM film 02" />
+                  <div class="work-media-overlay"><span>MGM 02</span></div>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="work-card" data-work-category="hospitality">
-            <img src="./assets/work/mgm-02-poster.jpg" alt="Macau MGM film 02" />
-            <div class="work-card-shade"></div>
-            <p class="work-brand">Macau MGM</p>
-            <div class="work-card-copy">
-              <h3>MGM 02</h3>
-              <span>Hospitality</span>
-            </div>
-          </article>
-
-          <article class="work-card" data-work-category="retail">
-            <img src="./assets/work/octopus-cover.jpg" alt="Octopus campaign film" />
-            <div class="work-card-shade"></div>
-            <p class="work-brand">Octopus</p>
-            <div class="work-card-copy">
+          <article class="work-brand-group" data-work-category="retail">
+            <header class="work-brand-header">
               <h3>Octopus</h3>
-              <span>Retail</span>
+              <span>01 film</span>
+            </header>
+            <div class="work-project">
+              <div class="work-media">
+                <img src="./assets/work/octopus-cover.jpg" alt="Octopus campaign film" />
+                <div class="work-media-overlay"><span>Octopus</span></div>
+              </div>
             </div>
           </article>
 
-          <article class="work-card" data-work-category="fashion">
-            <img src="./assets/work/grams-color.jpg" alt="GRAMS color film" />
-            <div class="work-card-shade"></div>
-            <p class="work-brand">GRAMS</p>
-            <div class="work-card-copy">
-              <h3>Color</h3>
-              <span>Fashion &amp; Lifestyle</span>
+          <article class="work-brand-group" data-work-category="fashion">
+            <header class="work-brand-header">
+              <h3>GRAMS</h3>
+              <span>02 films</span>
+            </header>
+            <div class="work-project">
+              <div class="work-media">
+                <img src="./assets/work/grams-color.jpg" alt="GRAMS color film" />
+                <div class="work-media-overlay">
+                  <span>Color</span>
+                  <button class="show-more-button" type="button" aria-expanded="false">
+                    Show more <span aria-hidden="true">↓</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="work-more" aria-hidden="true">
+              <div class="work-project">
+                <div class="work-media">
+                  <img src="./assets/work/grams-bw-poster.jpg" alt="GRAMS black and white film" />
+                  <div class="work-media-overlay"><span>Black &amp; White</span></div>
+                </div>
+              </div>
             </div>
           </article>
 
-          <article class="work-card" data-work-category="fashion">
-            <img src="./assets/work/grams-bw-poster.jpg" alt="GRAMS black and white film" />
-            <div class="work-card-shade"></div>
-            <p class="work-brand">GRAMS</p>
-            <div class="work-card-copy">
-              <h3>Black &amp; White</h3>
-              <span>Fashion &amp; Lifestyle</span>
+          <article class="work-brand-group" data-work-category="fashion">
+            <header class="work-brand-header">
+              <h3>KOISEA</h3>
+              <span>02 films</span>
+            </header>
+            <div class="work-project">
+              <div class="work-media">
+                <img src="./assets/work/koisea.png" alt="KOISEA landscape film" />
+                <div class="work-media-overlay">
+                  <span>Landscape</span>
+                  <button class="show-more-button" type="button" aria-expanded="false">
+                    Show more <span aria-hidden="true">↓</span>
+                  </button>
+                </div>
+              </div>
             </div>
-          </article>
-
-          <article class="work-card" data-work-category="fashion">
-            <img src="./assets/work/koisea.png" alt="KOISEA landscape film" />
-            <div class="work-card-shade"></div>
-            <p class="work-brand">KOISEA</p>
-            <div class="work-card-copy">
-              <h3>Landscape</h3>
-              <span>Fashion &amp; Lifestyle</span>
-            </div>
-          </article>
-
-          <article class="work-card" data-work-category="fashion">
-            <img src="./assets/work/koisea-underground.jpg" alt="KOISEA underground film" />
-            <div class="work-card-shade"></div>
-            <p class="work-brand">KOISEA</p>
-            <div class="work-card-copy">
-              <h3>Underground</h3>
-              <span>Fashion &amp; Lifestyle</span>
+            <div class="work-more" aria-hidden="true">
+              <div class="work-project">
+                <div class="work-media">
+                  <img src="./assets/work/koisea-underground.jpg" alt="KOISEA underground film" />
+                  <div class="work-media-overlay"><span>Underground</span></div>
+                </div>
+              </div>
             </div>
           </article>
         </div>
       </section>
     </main>
+
+    <aside class="artists-drawer" aria-hidden="true" aria-labelledby="artists-drawer-title">
+      <button class="artists-drawer-close" type="button" aria-label="Close artists directory">×</button>
+      <p>GreenTomato AI Artists</p>
+      <h2 id="artists-drawer-title">Artists</h2>
+      <nav aria-label="Artist directory">
+        <a href="#amber-profile"><span>01</span> Amber</a>
+        <a href="#mario-profile"><span>02</span> Mario</a>
+        <a href="#maya-profile"><span>03</span> Maya</a>
+        <a href="#noah-profile"><span>04</span> Noah</a>
+        <a href="#ooona-profile"><span>05</span> Ooona</a>
+      </nav>
+    </aside>
+    <button class="artists-drawer-backdrop" type="button" aria-label="Close artists directory"></button>
 
     <div class="language-menu" aria-hidden="true">
       <button type="button" data-language="EN">English</button>
