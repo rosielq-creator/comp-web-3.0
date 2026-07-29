@@ -2,6 +2,8 @@ const languageButton = document.querySelector(".language-button");
 const languageMenu = document.querySelector(".language-menu");
 const menuButton = document.querySelector(".menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
+const workFilters = document.querySelector(".work-filters");
+const workCards = document.querySelectorAll(".work-card");
 
 function setExpanded(button, panel, open) {
   button.setAttribute("aria-expanded", String(open));
@@ -38,4 +40,19 @@ document.addEventListener("click", (event) => {
   ) {
     setExpanded(languageButton, languageMenu, false);
   }
+});
+
+workFilters?.addEventListener("click", (event) => {
+  const button = event.target.closest("[data-work-filter]");
+  if (!button) return;
+
+  const filter = button.dataset.workFilter;
+  workFilters.querySelectorAll("button").forEach((item) => {
+    item.classList.toggle("is-active", item === button);
+  });
+
+  workCards.forEach((card) => {
+    card.hidden =
+      filter !== "all" && card.dataset.workCategory !== filter;
+  });
 });
