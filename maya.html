@@ -14,8 +14,8 @@
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./styles.css?v=5538f96-2" />
-    <link rel="stylesheet" href="./profile.css?v=5538f96-2" />
+    <link rel="stylesheet" href="./styles.css?v=maya-profile-v2" />
+    <link rel="stylesheet" href="./profile.css?v=maya-profile-v2" />
   </head>
   <body class="profile-page">
     <header class="site-header">
@@ -39,49 +39,95 @@
       </a>
     </header>
 
-    <main class="profile-hero">
-      <figure class="profile-cover">
-        <img src="./assets/artists/maya.png" alt="Maya in a black tailored look" />
-        <figcaption>
-          <span>GreenTomato AI Artist</span>
-          <span>Maya / 01</span>
-        </figcaption>
-      </figure>
+    <main>
+      <section class="profile-hero" aria-labelledby="maya-name">
+        <figure class="profile-cover">
+          <img
+            src="./assets/profiles/maya/pink-editorial.png"
+            alt="Maya in a pink architectural editorial"
+          />
+        </figure>
 
-      <section class="profile-intro" aria-labelledby="maya-name">
-        <p class="profile-breadcrumb">
-          <a href="./artists.html">Artists</a>
-          <span aria-hidden="true">›</span>
-          Maya
-        </p>
+        <div class="profile-intro">
+          <p class="profile-breadcrumb">
+            <a href="./artists.html">Artists</a>
+            <span aria-hidden="true">›</span>
+            Maya
+          </p>
 
-        <div class="profile-title">
-          <p>Luxury Fashion Artist</p>
-          <h1 id="maya-name">Maya</h1>
-        </div>
-
-        <dl class="profile-facts">
-          <div>
-            <dt>Based in</dt>
-            <dd>Paris · New York · Seoul</dd>
+          <div class="profile-title">
+            <p>AI Artist · Luxury Fashion / Art</p>
+            <h1 id="maya-name">Maya</h1>
+            <p class="profile-deck">
+              Restrained elegance shaped through fashion, art and contemporary
+              visual culture.
+            </p>
           </div>
-          <div>
-            <dt>Languages</dt>
-            <dd>English · Korean</dd>
-          </div>
-          <div>
-            <dt>Creative Talent</dt>
-            <dd>Fashion · Art</dd>
-          </div>
-        </dl>
 
-        <div class="profile-actions">
+          <dl class="profile-facts">
+            <div>
+              <dt>Based in</dt>
+              <dd>Paris · New York · Seoul</dd>
+            </div>
+            <div>
+              <dt>Languages</dt>
+              <dd>English · Korean</dd>
+            </div>
+            <div>
+              <dt>Creative Talent</dt>
+              <dd>Fashion · Art</dd>
+            </div>
+          </dl>
+
           <a class="profile-primary-action" href="./#contact">
             Start a project <span aria-hidden="true">↗</span>
           </a>
-          <a class="profile-secondary-action" href="./artists.html">
-            View all Artists
-          </a>
+        </div>
+      </section>
+
+      <section class="persona-section" aria-labelledby="persona-title">
+        <header class="section-index">
+          <span>02</span>
+          <span>Persona</span>
+        </header>
+        <div class="persona-layout">
+          <h2 id="persona-title">
+            Quiet confidence.<br />
+            <em>Contemporary instinct.</em>
+          </h2>
+          <div class="persona-copy">
+            <p>
+              Maya is a high-fashion and art-world AI Artist defined by
+              restrained elegance. Her visual world moves through galleries,
+              architecture and quiet-luxury city spaces.
+            </p>
+            <dl>
+              <div><dt>Character</dt><dd>Observant · Composed · Curious</dd></div>
+              <div><dt>World</dt><dd>Fashion · Art · Architecture</dd></div>
+              <div><dt>Presence</dt><dd>Editorial · Refined · Modern</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="gallery-section" aria-labelledby="gallery-title">
+        <header class="gallery-heading">
+          <div class="section-index">
+            <span>03</span>
+            <span>Gallery</span>
+          </div>
+          <h2 id="gallery-title">Selected images</h2>
+        </header>
+
+        <div class="profile-gallery">
+          <figure><img src="./assets/profiles/maya/black-tailoring.png" alt="Maya in black tailoring" /></figure>
+          <figure><img src="./assets/profiles/maya/pink-closeup.png" alt="Maya in a soft pink portrait" /></figure>
+          <figure><img src="./assets/profiles/maya/street-grey.png" alt="Maya in a grey street-style portrait" /></figure>
+          <figure><img src="./assets/profiles/maya/palais.png" alt="Maya at the Palais" /></figure>
+          <figure><img src="./assets/profiles/maya/canal-01.jpg" alt="Maya canal editorial, image one" /></figure>
+          <figure><img src="./assets/profiles/maya/canal-02.jpg" alt="Maya canal editorial, image two" /></figure>
+          <figure><img src="./assets/profiles/maya/canal-03.jpg" alt="Maya canal editorial, image three" /></figure>
+          <figure><img src="./assets/profiles/maya/pink-editorial.png" alt="Maya in a pink architectural editorial" /></figure>
         </div>
       </section>
     </main>
