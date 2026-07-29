@@ -1,8 +1,10 @@
 :root {
-  --paper: #f8f8f6;
+  --paper: #ffffff;
   --ink: #0b0b0b;
   --silver: #b8b8b3;
-  --line: #d8d8d3;
+  --line: #ddddda;
+  --gt-green: #007a56;
+  --gt-green-light: #dcefe8;
   --sans: "DM Sans", Arial, sans-serif;
   --serif: "Newsreader", Georgia, serif;
 }
@@ -47,7 +49,7 @@ button {
   height: 76px;
   padding: 0 28px;
   border-bottom: 1px solid var(--line);
-  background: rgba(248, 248, 246, 0.94);
+  background: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(12px);
 }
 
@@ -60,7 +62,8 @@ button {
   display: block;
   width: 148px;
   height: auto;
-  filter: invert(1);
+  filter: brightness(0) saturate(100%) invert(34%) sepia(45%) saturate(1351%)
+    hue-rotate(125deg) brightness(91%) contrast(101%);
 }
 
 .desktop-nav {
@@ -92,6 +95,7 @@ button {
 
 .desktop-nav a:hover::after,
 .desktop-nav a:focus-visible::after {
+  background: var(--gt-green);
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -173,7 +177,7 @@ h1 {
 }
 
 h1 em {
-  color: #8c8c87;
+  color: var(--gt-green);
   font-weight: 400;
 }
 
@@ -208,6 +212,7 @@ h1 em {
 }
 
 .primary-link:hover .link-arrow {
+  color: var(--gt-green);
   transform: translate(3px, -3px);
 }
 
@@ -224,7 +229,7 @@ h1 em {
   min-height: 0;
   margin: 0;
   overflow: hidden;
-  background: #deded9;
+  background: var(--gt-green-light);
 }
 
 .artist-image::after {
@@ -260,7 +265,7 @@ h1 em {
 
 .artist-index {
   margin: 0 0 2px;
-  color: #73736e;
+  color: var(--gt-green);
   font-size: 9px;
   letter-spacing: 0.08em;
 }
@@ -276,6 +281,11 @@ h1 em {
 .artist-meta a {
   margin-bottom: 7px;
   font-size: 11px;
+}
+
+.artist-meta a:hover,
+.artist-meta a:focus-visible {
+  color: var(--gt-green);
 }
 
 .hero-rail {
@@ -325,7 +335,7 @@ h1 em {
 }
 
 .language-menu button:hover {
-  background: #ececea;
+  background: var(--gt-green-light);
 }
 
 .mobile-menu {
