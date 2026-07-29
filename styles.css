@@ -4,7 +4,8 @@
   --silver: #b8b8b3;
   --line: #ddddda;
   --gt-green: #007a56;
-  --gt-green-light: #dcefe8;
+  --gt-green-light: color-mix(in srgb, var(--gt-green) 13%, white);
+  --gt-green-soft: color-mix(in srgb, var(--gt-green) 24%, white);
   --sans: "DM Sans", Arial, sans-serif;
   --serif: "Newsreader", Georgia, serif;
 }
@@ -297,18 +298,25 @@ h1 em {
   grid-template-columns: minmax(620px, 44%) minmax(560px, 56%);
   min-height: 100vh;
   overflow: hidden;
-  background: #f7f7f4;
+  background: #ffffff;
 }
 
 .capabilities-stream {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    #000 6%,
+    #000 79%,
+    transparent 100%
+  );
   mask-image: linear-gradient(
     to bottom,
     transparent 0%,
     #000 6%,
-    #000 94%,
+    #000 79%,
     transparent 100%
   );
 }
@@ -334,7 +342,7 @@ h1 em {
   gap: 20px;
   align-items: baseline;
   margin: 0;
-  color: #747474;
+  color: #7c7c78;
   white-space: nowrap;
 }
 
@@ -351,7 +359,7 @@ h1 em {
 }
 
 .capabilities-list strong {
-  color: #6f6f6d;
+  color: #6b6b68;
   font-size: clamp(18px, 1.5vw, 27px);
   font-weight: 500;
   letter-spacing: -0.035em;
@@ -399,41 +407,31 @@ h1 em {
   transform: translateY(-2px);
 }
 
-.capabilities-pixel-field {
+.capabilities-waves {
   position: absolute;
   z-index: 4;
   right: 0;
   bottom: 0;
   left: 0;
-  height: 27vh;
-  min-height: 190px;
+  width: 100%;
+  height: clamp(210px, 30vh, 330px);
   pointer-events: none;
 }
 
-.capabilities-pixel-field::before {
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(215, 239, 231, 0) 0%,
-      rgba(207, 234, 226, 0.42) 42%,
-      rgba(190, 224, 214, 0.92) 100%
-    );
-  content: "";
+.capabilities-waves path {
+  vector-effect: non-scaling-stroke;
 }
 
-.capabilities-pixel-field::after {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(
-    circle,
-    rgba(109, 181, 158, 0.66) 0 2px,
-    transparent 2.4px
-  );
-  background-size: 13px 13px;
-  content: "";
-  mask-image: linear-gradient(to bottom, transparent 0%, #000 72%);
+.wave-back {
+  fill: color-mix(in srgb, var(--gt-green) 9%, white);
+}
+
+.wave-middle {
+  fill: color-mix(in srgb, var(--gt-green) 17%, white);
+}
+
+.wave-front {
+  fill: var(--gt-green);
 }
 
 @keyframes capabilities-scroll {
