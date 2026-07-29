@@ -4,10 +4,6 @@ const menuButton = document.querySelector(".menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
 const workFilters = document.querySelector(".work-filters");
 const workGroups = document.querySelectorAll(".work-brand-group");
-const allArtistsButton = document.querySelector(".all-artists-button");
-const artistsDrawer = document.querySelector(".artists-drawer");
-const artistsDrawerClose = document.querySelector(".artists-drawer-close");
-const artistsDrawerBackdrop = document.querySelector(".artists-drawer-backdrop");
 
 function setExpanded(button, panel, open) {
   button.setAttribute("aria-expanded", String(open));
@@ -73,20 +69,4 @@ document.querySelectorAll(".show-more-button").forEach((button) => {
     more.setAttribute("aria-hidden", String(expanded));
     group.classList.toggle("is-expanded", !expanded);
   });
-});
-
-function setArtistsDrawer(open) {
-  if (!artistsDrawer || !artistsDrawerBackdrop || !allArtistsButton) return;
-  artistsDrawer.classList.toggle("is-open", open);
-  artistsDrawerBackdrop.classList.toggle("is-open", open);
-  artistsDrawer.setAttribute("aria-hidden", String(!open));
-  allArtistsButton.setAttribute("aria-expanded", String(open));
-}
-
-allArtistsButton?.addEventListener("click", () => setArtistsDrawer(true));
-artistsDrawerClose?.addEventListener("click", () => setArtistsDrawer(false));
-artistsDrawerBackdrop?.addEventListener("click", () => setArtistsDrawer(false));
-
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") setArtistsDrawer(false);
 });
