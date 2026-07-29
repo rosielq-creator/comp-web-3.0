@@ -508,9 +508,21 @@ h1 em {
   transition: background 180ms ease, transform 180ms ease;
 }
 
+.capabilities-link > span:first-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max-content;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+}
+
 .capabilities-link span[aria-hidden="true"] {
   position: absolute;
+  top: 50%;
   right: 22px;
+  line-height: 1;
+  transform: translateY(-50%);
 }
 
 .capabilities-link:hover {
@@ -694,11 +706,16 @@ h1 em {
 }
 
 .work-brand-group--portrait .work-media {
-  aspect-ratio: 3 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 16 / 9;
 }
 
 .work-brand-group--portrait .work-media img {
+  width: auto;
   height: 100%;
+  aspect-ratio: 3 / 4;
   object-fit: cover;
 }
 
