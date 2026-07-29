@@ -63,19 +63,19 @@
   gap: 8px;
   align-items: center;
   margin: 0 0 clamp(52px, 8vh, 92px);
-  color: #777a77;
-  font-size: 10px;
-  font-weight: 500;
-  letter-spacing: 0.1em;
+  color: #343633;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
 .profile-title > p:first-child {
   margin: 0 0 15px;
-  color: #626562;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
+  color: #242624;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
@@ -107,18 +107,19 @@
 }
 
 .profile-facts dt {
-  margin-bottom: 7px;
-  color: #858885;
-  font-size: 8px;
+  margin-bottom: 10px;
+  color: #4a4d4a;
+  font-size: 11px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .profile-facts dd {
   margin: 0;
   color: #222422;
-  font-size: 11px;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.45;
 }
 
@@ -153,10 +154,10 @@
 .section-index {
   display: flex;
   gap: 22px;
-  color: #777a77;
-  font-size: 9px;
+  color: #343633;
+  font-size: 13px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
@@ -203,8 +204,8 @@
 }
 
 .persona-copy dt {
-  color: #858885;
-  font-size: 8px;
+  color: #4a4d4a;
+  font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -212,7 +213,8 @@
 
 .persona-copy dd {
   margin: 0;
-  font-size: 11px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .gallery-section {
@@ -240,6 +242,102 @@
   gap: 14px;
   max-width: 1510px;
   margin: 0 auto;
+}
+
+.social-section {
+  padding: 110px clamp(52px, 6vw, 110px) 130px;
+  border-top: 1px solid #dfe0dc;
+}
+
+.social-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1510px;
+  margin: 0 auto;
+}
+
+.social-heading > p {
+  margin: 0;
+  color: #4a4d4a;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.social-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.72fr);
+  gap: clamp(80px, 10vw, 180px);
+  align-items: end;
+  max-width: 1510px;
+  margin: 76px auto 0;
+}
+
+.social-kicker {
+  margin: 0 0 18px;
+  color: #343633;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.social-layout h2 {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: clamp(42px, 4.5vw, 72px);
+  font-weight: 400;
+  letter-spacing: -0.052em;
+  line-height: 0.98;
+}
+
+.social-layout h2 em {
+  font-family: var(--serif);
+  font-weight: 400;
+}
+
+.social-platform-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+  align-items: end;
+  min-height: 260px;
+  padding: 28px 0 0;
+  border-top: 1px solid #aeb0ac;
+  border-bottom: 1px solid #aeb0ac;
+}
+
+.social-platform-card h3,
+.social-platform-card p {
+  margin: 0;
+}
+
+.social-platform-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.social-platform-card span {
+  display: block;
+  margin-top: 8px;
+  color: #4a4d4a;
+  font-size: 12px;
+}
+
+.social-platform-card strong {
+  font-family: var(--serif);
+  font-size: clamp(68px, 7vw, 118px);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.8;
+}
+
+.social-platform-card p {
+  grid-column: 1 / -1;
+  padding: 18px 0;
+  border-top: 1px solid #dfe0dc;
+  color: #343633;
+  font-size: 13px;
 }
 
 .profile-gallery figure {

@@ -647,8 +647,15 @@ h1 em {
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 64px 22px;
+  gap: 0 22px;
   align-items: start;
+}
+
+.work-column {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  min-width: 0;
 }
 
 .work-brand-group {
@@ -698,11 +705,17 @@ h1 em {
   background: #d9e6df;
 }
 
-.work-media img {
+.work-media img,
+.work-media video {
   display: block;
   width: 100%;
   height: auto;
-  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.work-media video {
+  aspect-ratio: 16 / 9;
+  background: #0f1110;
+  object-fit: contain;
 }
 
 .work-brand-group--portrait .work-media {
@@ -712,33 +725,32 @@ h1 em {
   aspect-ratio: 16 / 9;
 }
 
-.work-brand-group--portrait .work-media img {
+.work-brand-group--portrait .work-media img,
+.work-brand-group--portrait .work-media video {
   width: auto;
   height: 100%;
   aspect-ratio: 3 / 4;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 .work-media-overlay {
   position: absolute;
+  top: 0;
   right: 0;
-  bottom: 0;
+  bottom: auto;
   left: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   min-height: 58px;
   padding: 15px 18px;
-  background: linear-gradient(to top, rgba(4, 12, 9, 0.76), rgba(4, 12, 9, 0.04));
+  background: linear-gradient(to bottom, rgba(4, 12, 9, 0.7), rgba(4, 12, 9, 0));
   color: #fff;
   font-size: 12px;
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 220ms ease, transform 220ms ease;
-}
-
-.work-media:hover img {
-  transform: scale(1.025);
+  pointer-events: none;
 }
 
 .work-media:hover .work-media-overlay,
@@ -758,6 +770,7 @@ h1 em {
   color: #fff;
   font-size: 11px;
   cursor: pointer;
+  pointer-events: auto;
 }
 
 .show-more-button span {

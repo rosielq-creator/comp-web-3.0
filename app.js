@@ -4,10 +4,20 @@ const menuButton = document.querySelector(".menu-button");
 const mobileMenu = document.querySelector(".mobile-menu");
 const workFilters = document.querySelector(".work-filters");
 const workGroups = [...document.querySelectorAll(".work-brand-group")];
+const workGrid = document.querySelector(".work-grid");
 const workLoadMore = document.querySelector(".work-load-more");
 const WORK_BATCH_SIZE = 4;
 let activeWorkFilter = "all";
 let visibleWorkCount = WORK_BATCH_SIZE;
+
+if (workGrid && workGroups.length) {
+  const columns = [document.createElement("div"), document.createElement("div")];
+  columns.forEach((column) => {
+    column.className = "work-column";
+    workGrid.append(column);
+  });
+  workGroups.forEach((group, index) => columns[index % 2].append(group));
+}
 
 function updateVisibleWork() {
   const matchingGroups = workGroups.filter(
@@ -113,6 +123,36 @@ document.querySelectorAll(".show-more-button").forEach((button) => {
     button.firstChild.textContent = expanded ? "Show more " : "Show less ";
     more.setAttribute("aria-hidden", String(expanded));
     group.classList.toggle("is-expanded", !expanded);
+  });
+});
+
+const workVideos = [...document.querySelectorAll(".work-media video")];
+
+workVideos.forEach((video) => {
+  const media = video.closest(".work-media");
+
+  media?.addEventListener("pointerenter", () => {
+    video.controls = true;
+  });
+
+  media?.addEventListener("pointerleave", () => {
+    video.controls = false;
+  });
+
+  media?.addEventListener("focusin", () => {
+    video.controls = true;
+  });
+
+  media?.addEventListener("focusout", () => {
+    video.controls = false;
+  });
+
+  video.addEventListener("play", () => {
+    workVideos.forEach((otherVideo) => {
+      if (otherVideo !== video && !otherVideo.paused) {
+        otherVideo.pause();
+      }
+    });
   });
 });
 
