@@ -769,10 +769,7 @@ h1 em {
 }
 
 .work-more {
-  display: grid;
-  grid-template-rows: 0fr;
-  opacity: 0;
-  transition: grid-template-rows 420ms cubic-bezier(0.16, 1, 0.3, 1), opacity 260ms ease;
+  display: none;
 }
 
 .work-more > .work-project {
@@ -781,9 +778,8 @@ h1 em {
 }
 
 .work-brand-group.is-expanded .work-more {
-  grid-template-rows: 1fr;
+  display: grid;
   margin-top: 14px;
-  opacity: 1;
 }
 
 .work-load-more {
