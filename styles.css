@@ -494,6 +494,7 @@ h1 em {
 
 .capabilities-link {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 280px;
   margin-top: 42px;
